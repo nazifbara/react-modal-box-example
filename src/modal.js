@@ -13,15 +13,14 @@ function Modal(props) {
   return <ModalContext.Provider value={[isOpen, setIsOpen]} {...props} />;
 }
 
-function ModalOpenButton({ children: child }) {
+function ModalOpenButton({ children }) {
   const [, setIsOpen] = React.useContext(ModalContext);
-  return React.cloneElement(child, {
-    onClick: () => setIsOpen(true),
-  });
+  return <button onClick={() => setIsOpen(true)}>{children}</button>;
 }
 
 function ModalCloseButton() {
   const [, setIsOpen] = React.useContext(ModalContext);
+
   return (
     <button
       onClick={() => setIsOpen(false)}
@@ -59,6 +58,7 @@ const Overlay = styled.div({
 
 function ModalContent({ children, title, imageSrc }) {
   const [isOpen, setIsOpen] = React.useContext(ModalContext);
+
   return isOpen ? (
     <Overlay onClick={() => setIsOpen(false)}>
       <div

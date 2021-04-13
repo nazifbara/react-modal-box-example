@@ -1,11 +1,21 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx } from '@emotion/react';
 import { Modal, ModalOpenButton, ModalContent } from './modal';
 
 function App() {
   return (
     <Modal>
-      <ModalOpenButton>
-        <button>Open modal</button>
-      </ModalOpenButton>
+      <div
+        css={{
+          height: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <ModalOpenButton>Open modal</ModalOpenButton>
+      </div>
       <ModalContent title="Modal title here!" imageSrc="./forest.jpg">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
